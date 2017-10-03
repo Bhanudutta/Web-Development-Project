@@ -1,0 +1,39 @@
+header{			
+				background-color:		rgba(255,200,200,0.4);
+				border-radius: 			20px;
+				height:				100px;
+				width:				400px;
+				border-color:			rgba(96, 64, 31,0.7);
+				border-style:			solid;
+				margin:				auto;
+				padding:			0px;
+			}
+		h1{
+				opacity:			1.0;
+				font-family:			chiller;
+				font-size:			60px;
+				text-align:			center;
+				margin:				0px;
+				padding:            		0px;
+		}	
+		hr,h4{
+				margin:				0px;
+				margin-left:        		10px;
+				margin-right:       		10px;
+				margin-top:	    		5px;		
+				padding:            		0px;
+				text-align:			center;
+				color:				rgba(100,100,100,1.0);	
+		}
+		select{
+				width:				100px;		
+		}
+		button{
+				height:				40px;
+				width:				120px;
+				border: 			0;
+				box-shadow:			none;
+				border-radius: 		0px;
+				font-size:			20px;
+				background-color:	lightblue;
+		}
