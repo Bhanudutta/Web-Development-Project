@@ -1,0 +1,41 @@
+body{
+				background-image: 	url(sd.jpg);
+				background-repeat:  no-repeat; 
+				background-size:	105% 105%;	
+		}
+		.main-box{									//mainbox is a div which is the main rectangle;
+				margin-left:		auto;
+				margin-right:		auto;
+				margin-top:			100px;
+				background-color:	rgba(170,170,170,0.7);
+				border-radius: 		10px;
+				border-color:		rgba(170,170,255,0.01);
+				border-style:		solid;
+				border-width:		10px;
+				height:				450px;
+				width:				600px;	
+				align:				center;	
+				padding:			20px;
+		}
+		.box{										//box is another div which contains the forms another box present is the header , its CSS is external;
+				background-color:	rgba(200,255,200,0.4);
+				border-radius: 		20px;
+				height:				300px;
+				width:				500px;
+				border-color:			rgba(0,0,255,0.3);
+				border-style:		solid;
+				margin:				auto;
+				margin-top:		20px;
+				padding:			0px;	
+		}
+		#form1{
+				margin:				20px;
+				border-right:		solid;
+				float:              left;
+				padding-right:		75px;	
+		}
+		#form2{
+				margin:				20px;
+				float:              left;
+				margin-top:			50px;
+		}
