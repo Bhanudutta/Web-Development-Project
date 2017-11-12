@@ -1,0 +1,54 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="../css/external.css">
+	<link rel="stylesheet" type="text/css" href="../css/external2.css">
+	<script>
+		function login()
+		{
+			window.location.href = 'login.html';
+		}
+		function reg()
+		{
+			window.location.href = 'register.html';
+		}
+		function main()
+		{
+			window.location.href = '../home/main.html'
+		}
+	</script>
+	</head>
+	<body>
+		<div class="main-box">
+			<header>
+				<h1>e-ClassRoom</h1>
+				<hr></hr>
+				<h4>A place to learn , interact and help you , me and us</h4>
+			</header>
+			<div class="box">
+				<form id="form1">
+					Continue without Login</br></br>
+					Year&nbsp&nbsp&nbsp&nbsp
+					<select>
+					</select>
+					</br></br>
+					Branch
+					<select>
+					</select>
+					</br></br>
+					Section
+					<select>
+					</select>
+					</br></br>
+					Batch&nbsp&nbsp&nbsp
+					<select>
+					</select></br></br>
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button style="color:blue;" onclick="main();return false;">Get Data</button>
+				</form>	
+				<form id="form2">
+					<button style="color:green;" onclick="login();return false;">Login</button></br></br>
+					<button style="color:blue;" onclick="reg();return false;">Sign Up</button>
+				</form>	
+			</div>
+		</div>
+	</body>
+</html>

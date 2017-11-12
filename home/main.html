@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link tpye="text/css"rel="stylesheet"href="../css/cssstyle.css">
+		<style>
+			body{
+				background-color:rgb(220,220,255);
+			}
+			.notices{
+						height: 100%;
+						float: left;
+						padding: 1%;
+						text-align:center;
+						box-shadow:		5px 5px 5px #888888;
+					}
+			#clg-notice{
+						width:	23%;
+						height:  200px;
+					} 
+			#cls-notice{
+						width:	48%;
+						background-color:rgb(255,255,255);
+						border-radius:3px;	
+						height: 200px;		
+					}
+            #std-notice{
+						width:	23%;
+						height:  200px;
+					}	
+			#map{
+						margin:5px;
+						border-radius:10px;
+						box-shadow:		5px 5px 5px #888888;
+					}
+		</style>
+	  <head>
+    <script type="x-shader/x-vertex" id="vertex-shader">
+    precision mediump float;
+ 
+    attribute vec3 pos;
+    attribute vec3 normal;
+ 
+    varying vec3 col;
+ 
+    uniform mat4 projectionMatrix, viewMatrix, modelMatrix;
+    uniform mat3 normalMatrix;
+ 
+    uniform vec3 ambientLightColour, directionalLight, materialSpecular;
+    uniform float materialAmbient, materialDiffuse, shininess;
+ 
+    /* A function to determine the colour of a vertex, accounting
+       for ambient and directional light */
+    vec3 ads( vec4 position, vec3 norm )
+    {
+      vec3 s = normalize(vec3(vec4(directionalLight,1.0) - position));
+      vec3 v = normalize(vec3(-position));
+      vec3 r = reflect(-s, norm);
+      return ambientLightColour +
+        materialDiffuse * max(dot(s,norm), 0.0) +
+        materialSpecular * pow(max(dot(r,v), 0.0), shininess);
+    }
+ 
+    void main() {
+      vec3 eyeNormal = normalize(normalMatrix * normal);
+      vec4 eyePosition =  viewMatrix * modelMatrix * vec4(pos, 1.0);
+      col = min(vec3(0.0) + ads(eyePosition, eyeNormal), 1.0);
+      gl_Position = projectionMatrix * viewMatrix * modelMatrix *
+        vec4(pos, 1.0); 
+    }
+    </script>
+    <script type="x-shader/x-fragment" id="fragment-shader">
+    precision mediump float;
+ 
+    varying vec3 col;
+ 
+    void main() {
+      gl_FragColor = vec4(col, 1.0);
+    }
+    </script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/gl-matrix.js"></script>
+	<script type="text/javascript" src="../js/model.js"></script>
+  </head>		
+	</head>
+	<body>
+		<image src="../images/svvv title.png"width="100%">
+		<div id="menu">
+		  	    <ul>
+ 		      		<li><a href="#"><img align="center" src="../images/logo-only.png" width="50%"></a></li>
+  		      		<li><a href="#"><img align="center" src="../images/logo-you.png" width="15%">YOU</a></li>
+		      		<li><a href="#"><img align="center" src="../images/logo-teacher.png" width="20%">TEACHER</a></li>
+  	              	<li><a href="#"><img align="center" src="../images/logo-stud.png" width="15%">STUDENT</a></li>
+  		      		<li><a href="#"><img align="center" src="../images/logo-subject.png" width="15%">SUBJECT</a></li>
+		      		<li><a href="#"><img align="center" src="../images/logo-cont.png" width="15%">Contact Us</a></li>
+		  	    </ul> 
+		</div>
+		<center>
+			<canvas id="map" width="1000px" height="500px"></canvas>
+		</center>
+		<div class="noticebox">
+			<div id="clg-notice" class="notices">
+				<h4>College Notices</h4>
+			</div>
+			<div id="cls-notice" class="notices">
+				<h4>Class Notices</h4>
+				<p>
+					UNESCO declared CSE-A to be the best class of the universe 
+				</p>
+			</div>
+			<div id="std-notice" class="notices">
+				<h4>Student Notices</h4>
+			</div>	
+		<div class="noticebox">	
+	</body>
+</html>	
